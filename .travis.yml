@@ -6,19 +6,15 @@ branches:
   only:
     - master
 
-addons:
-    chrome: stable
-
 before_script:
   - npm install -g @angular/cli
 
-cache:
-  npm: true
-  directories:
-    - node_modules
-
 script:
-  - ng build --prod
+  - npm install
+  - npm run build
 
-deploy:
-  local-dir: './dist/'
+# deploy:
+#   skip_cleanup: true
+#   provider: firebase
+#   token:
+#     secure: ""
